@@ -34,7 +34,4 @@ export function getEmbedder(): Promise<EmbedFn> {
   return embedderPromise;
 }
 
-/** Format a vector for pgvector's text representation. */
-export function toPgVector(vector: readonly number[]): string {
-  return `[${vector.map((value) => value.toFixed(6)).join(',')}]`;
-}
+export { toPgVector } from '../../src/lib/pgvector.ts';

@@ -102,3 +102,10 @@ describe('sectionsOf', () => {
     expect(sectionsOf([chunk('18', 0), chunk('18', 1), chunk('21')])).toEqual(['18', '21']);
   });
 });
+
+describe('toPgVector', () => {
+  it('formats vectors for pgvector', async () => {
+    const { toPgVector } = await import('../src/lib/pgvector');
+    expect(toPgVector([0.1, -0.25])).toBe('[0.100000,-0.250000]');
+  });
+});
