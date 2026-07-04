@@ -77,11 +77,7 @@ export function parseAct(fullHtml: string): Section[] {
   const sections: Section[] = [];
   let currentPart: string | null = null;
 
-  for (let i = 0; i < markers.length; i++) {
-    const marker = markers[i];
-    if (!marker) {
-      continue;
-    }
+  for (const [i, marker] of markers.entries()) {
     if (marker.kind === 'part') {
       currentPart = htmlToText(marker.content).replace(/\n/g, ' ').trim();
       continue;

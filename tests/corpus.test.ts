@@ -63,6 +63,11 @@ describe('parseAct', () => {
     expect(ids).toEqual(['1', '13A']);
   });
 
+  it('skips prov blocks without a section heading', () => {
+    const noHeading = '<div class="prov" id="DLM11111"><p>cross heading only</p></div>' + SAMPLE;
+    expect(parseAct(noHeading).map((s) => s.id)).toEqual(['1', '13A']);
+  });
+
   it('drops repealed sections with empty bodies', () => {
     const ids = parseAct(SAMPLE).map((s) => s.id);
     expect(ids).not.toContain('14');
