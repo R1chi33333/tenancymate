@@ -15,8 +15,10 @@
     "eval": "node --no-warnings --env-file=.env.local eval/run.ts"
   },
   "dependencies": {
+    "@ai-sdk/groq": "^4.0.5",
     "@huggingface/transformers": "^4.2.0",
     "@neondatabase/serverless": "^1.1.0",
+    "ai": "^7.0.15",
     "lucide-react": "^1.23.0",
     "next": "15.5.20",
     "react": "19.1.0",
