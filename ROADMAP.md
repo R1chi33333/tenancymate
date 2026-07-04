@@ -5,7 +5,7 @@ Development follows small, releasable increments. Each item below is one loop.
 ## Milestone: v0.1.0 — Corpus and retrieval
 
 - [x] Loop 1: repository scaffold, CI, deployable page with the standing disclaimer
-- [ ] Loop 2: corpus pipeline — fetch the Residential Tenancies Act 1986 from legislation.govt.nz, split by section keeping the number hierarchy, tested
+- [x] Loop 2: corpus pipeline — fetch, split by section with hierarchy, tested against the real Act
 - [ ] Loop 3: embeddings (local MiniLM) into pgvector on Neon, plus a Postgres full-text index for BM25-style retrieval
 - [ ] Loop 4: retrieval API — vector search first, hybrid (vector + full text) behind a flag for the eval comparison
 - [ ] Release v0.1.0
