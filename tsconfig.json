@@ -31,7 +31,9 @@
     ".next/types/**/*.ts",
     "pipeline/**/*.ts",
     "tests/**/*.ts",
-    "eval/**/*.ts"
+    "eval/**/*.ts",
+    "e2e/**/*.ts",
+    "playwright.config.ts"
   ],
   "exclude": ["node_modules"]
 }

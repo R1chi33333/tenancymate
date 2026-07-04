@@ -13,7 +13,8 @@
     "pipeline": "node --no-warnings pipeline/run.ts",
     "pipeline:embed": "node --no-warnings --env-file=.env.local pipeline/embed.ts",
     "eval": "tsx --env-file=.env.local eval/run.ts",
-    "eval:citations": "tsx --env-file=.env.local eval/citations.ts"
+    "eval:citations": "tsx --env-file=.env.local eval/citations.ts",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@ai-sdk/groq": "^4.0.5",

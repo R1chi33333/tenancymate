@@ -2,7 +2,14 @@
 
 import { useRef, useState } from 'react';
 import { CornerDownLeft, LoaderCircle } from 'lucide-react';
-import { getBrowserEmbedder } from '@/lib/client-embedding';
+import { getBrowserEmbedder, type BrowserEmbedder } from '@/lib/client-embedding';
+
+declare global {
+  interface Window {
+    /** Test seam: e2e injects a fake embedder to avoid the model download. */
+    __testEmbed?: BrowserEmbedder;
+  }
+}
 
 interface Turn {
   question: string;
@@ -92,7 +99,7 @@ export function Chat() {
     ]);
 
     try {
-      const embed = await getBrowserEmbedder(setStatus);
+      const embed = window.__testEmbed ?? (await getBrowserEmbedder(setStatus));
       setStatus(undefined);
       const vector = await embed(question);
 
