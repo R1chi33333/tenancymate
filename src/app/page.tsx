@@ -1,8 +1,9 @@
 import { Scale } from 'lucide-react';
+import { Chat } from './chat';
 
 export default function Home() {
   return (
-    <div className="mx-auto flex min-h-screen max-w-[1200px] flex-col px-6">
+    <div className="mx-auto flex h-screen max-w-[1200px] flex-col px-4 sm:px-6">
       <div className="border-b border-border bg-surface-1 px-4 py-1.5 text-center text-xs text-fg-muted">
         General information, not legal advice.
       </div>
@@ -10,6 +11,9 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <Scale className="size-5 text-accent" strokeWidth={1.5} />
           <span className="text-sm font-semibold">TenancyMate</span>
+          <span className="hidden text-xs text-fg-muted sm:inline">
+            Residential Tenancies Act 1986
+          </span>
         </div>
         <a
           href="https://github.com/R1chi33333/tenancymate"
@@ -19,19 +23,11 @@ export default function Home() {
         </a>
       </header>
 
-      <main className="flex flex-1 flex-col items-center justify-center gap-4 py-16 text-center">
-        <h1 className="max-w-xl text-3xl font-semibold tracking-tight">
-          NZ tenancy law answers, with the section to prove it
-        </h1>
-        <p className="max-w-md text-sm leading-relaxed text-fg-muted">
-          Retrieval-augmented answers over the Residential Tenancies Act 1986, every claim cited to
-          its section, with a published evaluation set. Under construction.
-        </p>
-      </main>
+      <Chat />
 
-      <footer className="border-t border-border py-4 text-xs text-fg-muted">
-        MIT licensed. General information, not legal advice. Source: Residential Tenancies Act 1986
-        via legislation.govt.nz (CC BY 4.0).
+      <footer className="border-t border-border py-3 text-xs text-fg-muted">
+        General information, not legal advice. Source: Residential Tenancies Act 1986 via
+        legislation.govt.nz (CC BY 4.0). Answers are rate limited daily.
       </footer>
     </div>
   );

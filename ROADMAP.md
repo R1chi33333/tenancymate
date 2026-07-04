@@ -24,8 +24,8 @@ Development follows small, releasable increments. Each item below is one loop.
 
 ## Milestone: v1.0.0 — Ship
 
-- [ ] Loop 9: chat UI with streaming, citation panel that scrolls and highlights the cited section
-- [ ] Loop 10: rate limiting and a daily usage cap
+- [x] Loop 9: chat UI with streaming, clickable citations and the section panel
+- [x] Loop 10: rate limiting sized against the real free-tier budget
 - [ ] Loop 11: Playwright e2e, README results and screenshot, deploy
 - [ ] Release v1.0.0
 
