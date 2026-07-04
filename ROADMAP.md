@@ -7,7 +7,7 @@ Development follows small, releasable increments. Each item below is one loop.
 - [x] Loop 1: repository scaffold, CI, deployable page with the standing disclaimer
 - [x] Loop 2: corpus pipeline — fetch, split by section with hierarchy, tested against the real Act
 - [x] Loop 3: embeddings (local MiniLM) into pgvector on Neon, plus a full-text index
-- [ ] Loop 4: retrieval API — vector search first, hybrid (vector + full text) behind a flag for the eval comparison
+- [x] Loop 4: retrieval — vector search and hybrid RRF fusion behind one interface
 - [ ] Release v0.1.0
 
 ## Milestone: v0.2.0 — Evaluation
