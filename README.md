@@ -8,7 +8,7 @@
 
 > General information, not legal advice.
 
-> Status: under active development, pre-v0.1.0.
+![TenancyMate answering a bond question with clickable citations and the section panel](./docs/screenshot.png)
 
 ## Why this exists
 
@@ -38,7 +38,9 @@ flowchart LR
 
 ## Tech Stack
 
-Next.js 15 (App Router), TypeScript (strict), Neon Postgres with pgvector, Claude API, transformers.js (local embeddings), Tailwind CSS, Vitest, Playwright.
+Next.js 15 (App Router), TypeScript (strict), Neon Postgres with pgvector, transformers.js (MiniLM embeddings, in the pipeline and in the browser), Vercel AI SDK, Tailwind CSS, Vitest, Playwright.
+
+Generation runs on Groq's free tier (Llama 3.3 70B) so the whole demo costs nothing to operate; the provider sits behind the Vercel AI SDK, so swapping in the Claude API is a one-line change. Query embeddings are computed in the visitor's browser with the same MiniLM that indexed the corpus: the model downloads once (about 25 MB) and the server needs no ML runtime.
 
 ## Getting Started
 
