@@ -53,23 +53,30 @@ const embedQuery = async (query: string): Promise<string> => {
 };
 
 const K_VALUES = [3, 6];
-const strategies: Strategy[] = ['vector', 'hybrid'];
+const configs: { label: string; strategy: Strategy; headingChunks: boolean }[] = [
+  { label: 'body chunks, vector', strategy: 'vector', headingChunks: false },
+  { label: 'body chunks, hybrid', strategy: 'hybrid', headingChunks: false },
+  { label: 'heading chunks, vector', strategy: 'vector', headingChunks: true },
+  { label: 'heading chunks, hybrid', strategy: 'hybrid', headingChunks: true },
+];
 
 interface StrategyResult {
-  strategy: Strategy;
+  strategy: string;
   recallAtK: Record<string, number>;
   misses: { id: string; missing: string[]; got: string[] }[];
 }
 
 const results: StrategyResult[] = [];
 
-for (const strategy of strategies) {
+for (const config of configs) {
+  const strategy = config.label;
   const recallSums = new Map<number, number>(K_VALUES.map((k) => [k, 0]));
   const misses: StrategyResult['misses'] = [];
 
   for (const pair of pairs) {
     const chunks = await retrieve({ sql, embedQuery }, pair.question, {
-      strategy,
+      strategy: config.strategy,
+      headingChunks: config.headingChunks,
       k: Math.max(...K_VALUES),
     });
 

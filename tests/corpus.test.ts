@@ -3,6 +3,10 @@ import { chunkSection, CHUNK_TARGET_CHARS, htmlToText, parseAct } from '../pipel
 
 const SAMPLE = `
 <h1 class="part"><span>Part 1</span> Application of Act</h1>
+<div class="prov" id="LMS1561960">
+  <h5 class="prov"><span class="label">18AA</span> Pet bonds</h5>
+  <div class="prov-body"><div class="para"><p class="text">A landlord may require a pet bond.</p></div></div>
+</div>
 <div class="prov" id="DLM94282">
   <h5 class="prov"><span class="label">1</span> Short Title and commencement</h5>
   <div class="prov-body">
@@ -38,19 +42,20 @@ describe('parseAct', () => {
   it('extracts sections with part context and skips non-sections', () => {
     const sections = parseAct(SAMPLE);
 
-    expect(sections.map((s) => s.id)).toEqual(['1', '13A']);
-    expect(sections[0]).toMatchObject({
+    expect(sections.map((s) => s.id)).toEqual(['18AA', '1', '13A']);
+    expect(sections[1]).toMatchObject({
       id: '1',
       heading: 'Short Title and commencement',
       part: 'Part 1 Application of Act',
     });
-    expect(sections[0]?.text).toContain('cited as the Residential Tenancies Act 1986');
-    expect(sections[0]?.text).toContain('(1)');
-    expect(sections[1]).toMatchObject({
+    expect(sections[1]?.text).toContain('cited as the Residential Tenancies Act 1986');
+    expect(sections[1]?.text).toContain('(1)');
+    expect(sections[0]?.text).toContain('pet bond');
+    expect(sections[2]).toMatchObject({
       id: '13A',
       part: 'Part 2 Tenancy agreements',
     });
-    expect(sections[1]?.text).toContain('bond & the rent');
+    expect(sections[2]?.text).toContain('bond & the rent');
   });
 
   it('stops at the first schedule so amendment provisions never collide', () => {
@@ -60,12 +65,12 @@ describe('parseAct', () => {
       '<div class="prov" id="DLM77777"><h5 class="prov"><span class="label">1</span> Amendment provision</h5>' +
       '<div class="prov-body"><div class="para"><p class="text">Would collide with s 1.</p></div></div></div>';
     const ids = parseAct(withSchedule).map((s) => s.id);
-    expect(ids).toEqual(['1', '13A']);
+    expect(ids).toEqual(['18AA', '1', '13A']);
   });
 
   it('skips prov blocks without a section heading', () => {
     const noHeading = '<div class="prov" id="DLM11111"><p>cross heading only</p></div>' + SAMPLE;
-    expect(parseAct(noHeading).map((s) => s.id)).toEqual(['1', '13A']);
+    expect(parseAct(noHeading).map((s) => s.id)).toEqual(['18AA', '1', '13A']);
   });
 
   it('drops repealed sections with empty bodies', () => {

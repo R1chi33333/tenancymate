@@ -26,10 +26,12 @@ export async function vectorSearch(
   sql: SqlRunner,
   queryVector: string,
   k: number,
+  minIdx = -1,
 ): Promise<RetrievedChunk[]> {
   const rows = await sql`
     SELECT section_id, idx, body, 1 - (embedding <=> ${queryVector}::vector) AS score
     FROM chunks
+    WHERE idx >= ${minIdx}
     ORDER BY embedding <=> ${queryVector}::vector
     LIMIT ${k}`;
   return rows.map((row) => ({
@@ -44,12 +46,14 @@ export async function textSearch(
   sql: SqlRunner,
   query: string,
   k: number,
+  minIdx = -1,
 ): Promise<RetrievedChunk[]> {
   const rows = await sql`
     SELECT section_id, idx, body,
            ts_rank(tsv, websearch_to_tsquery('english', ${query})) AS score
     FROM chunks
     WHERE tsv @@ websearch_to_tsquery('english', ${query})
+      AND idx >= ${minIdx}
     ORDER BY score DESC
     LIMIT ${k}`;
   return rows.map((row) => ({
@@ -94,18 +98,20 @@ export interface RetrieveDeps {
 export async function retrieve(
   deps: RetrieveDeps,
   query: string,
-  options: { k?: number; strategy?: Strategy } = {},
+  options: { k?: number; strategy?: Strategy; headingChunks?: boolean } = {},
 ): Promise<RetrievedChunk[]> {
   const k = options.k ?? 6;
   const strategy = options.strategy ?? 'hybrid';
+  // Heading chunks have idx -1; the eval compares runs without them.
+  const minIdx = (options.headingChunks ?? true) ? -1 : 0;
 
   const queryVector = await deps.embedQuery(query);
   if (strategy === 'vector') {
-    return vectorSearch(deps.sql, queryVector, k);
+    return vectorSearch(deps.sql, queryVector, k, minIdx);
   }
   const [byVector, byText] = await Promise.all([
-    vectorSearch(deps.sql, queryVector, CANDIDATES),
-    textSearch(deps.sql, query, CANDIDATES),
+    vectorSearch(deps.sql, queryVector, CANDIDATES, minIdx),
+    textSearch(deps.sql, query, CANDIDATES, minIdx),
   ]);
   return rrfFuse([byVector, byText], k);
 }

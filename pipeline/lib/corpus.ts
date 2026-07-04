@@ -70,7 +70,7 @@ export function parseAct(fullHtml: string): Section[] {
     markers.push({ kind: 'part', start: m.index, content: m[1] ?? '' });
   }
 
-  const provPattern = /<div class="prov" id="DLM\d+">/g;
+  const provPattern = /<div class="prov" id="(?:DLM|LMS)\d+">/g;
   for (let m = provPattern.exec(html); m; m = provPattern.exec(html)) {
     markers.push({ kind: 'prov', start: m.index, content: '' });
   }

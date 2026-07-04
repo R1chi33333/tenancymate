@@ -18,8 +18,8 @@ Development follows small, releasable increments. Each item below is one loop.
 
 ## Milestone: v0.3.0 — Answers
 
-- [ ] Loop 7: Claude generation with mandatory [s 42] citations and an explicit "the Act does not directly address this" path
-- [ ] Loop 8: citation accuracy metric in the eval, README updated with the numbers
+- [x] Loop 7: generation over Groq free tier with the citation contract enforced
+- [x] Loop 8: citation accuracy eval with cached answers; corpus bug found and fixed
 - [ ] Release v0.3.0
 
 ## Milestone: v1.0.0 — Ship

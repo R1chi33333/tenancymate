@@ -10,6 +10,13 @@
       "answerable": true
     },
     {
+      "id": "pet-bond",
+      "question": "Can my landlord charge an extra bond because I have a dog?",
+      "expectedSections": ["18AA"],
+      "answerPoints": ["a pet bond of no more than 2 weeks' rent may be required"],
+      "answerable": true
+    },
+    {
       "id": "bond-other-security",
       "question": "Can a landlord ask for a guarantee or extra security on top of the bond?",
       "expectedSections": ["18A"],

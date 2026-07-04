@@ -39,6 +39,12 @@ describe('parseCitations', () => {
   it('tolerates extra whitespace and ignores malformed forms', () => {
     expect(parseCitations('See [s  22A] but not [section 5] or [s]')).toEqual(['22A']);
   });
+
+  it('accepts subsection detail and validates the base section', () => {
+    expect(
+      parseCitations('Rates are on the landlord [s 39(2)(a)] and power on you [s 39(3)].'),
+    ).toEqual(['39']);
+  });
 });
 
 describe('checkAnswer', () => {

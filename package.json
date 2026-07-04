@@ -12,7 +12,8 @@
     "test:coverage": "vitest run --coverage",
     "pipeline": "node --no-warnings pipeline/run.ts",
     "pipeline:embed": "node --no-warnings --env-file=.env.local pipeline/embed.ts",
-    "eval": "node --no-warnings --env-file=.env.local eval/run.ts"
+    "eval": "tsx --env-file=.env.local eval/run.ts",
+    "eval:citations": "tsx --env-file=.env.local eval/citations.ts"
   },
   "dependencies": {
     "@ai-sdk/groq": "^4.0.5",
@@ -36,6 +37,7 @@
     "prettier": "^3.9.4",
     "semantic-release": "^24.2.9",
     "tailwindcss": "^4",
+    "tsx": "^4.23.0",
     "typescript": "^5",
     "vitest": "^4.1.9"
   },

@@ -57,21 +57,28 @@ npm run dev
 npm run eval   # retrieval recall@k against eval/qa.json
 ```
 
-44 answerable hand-written questions, each with verified expected sections
+45 answerable hand-written questions, each with verified expected sections
 ([eval/qa.json](./eval/qa.json)). Recall at k is the share of expected
-sections appearing among the top-k retrieved chunks' sections.
+sections appearing among the top-k retrieved chunks' sections. All numbers
+below are measured on the same complete corpus.
 
 | configuration                  | recall@3  | recall@6  |
 | ------------------------------ | --------- | --------- |
-| body chunks, vector only       | 0.523     | 0.602     |
-| body chunks, hybrid (RRF)      | 0.545     | 0.602     |
-| + heading chunks, vector only  | 0.545     | 0.705     |
-| + heading chunks, hybrid (RRF) | **0.591** | **0.705** |
+| body chunks, vector only       | 0.500     | 0.633     |
+| body chunks, hybrid (RRF)      | 0.522     | 0.633     |
+| + heading chunks, vector only  | 0.522     | 0.700     |
+| + heading chunks, hybrid (RRF) | **0.567** | **0.700** |
 
 The measured improvement: statutory headings are short plain-language
-summaries ("Rent in advance", "Tenant's goods not to be seized"), so indexing
-each section's heading as its own chunk lifted recall@6 by 10 points over
-body-only chunking. Citation accuracy lands with the generation milestone.
+summaries ("Rent in advance", "Pet bonds"), so indexing each section's
+heading as its own chunk lifts recall@6 by 7 points over body-only chunking.
+
+The eval also caught a corpus bug worth recording: the first parser only
+matched legislation.govt.nz's older DLM element ids, silently dropping all
+74 sections added by recent amendment acts (pet bonds, healthy homes and
+more). A live answer citing [s 18AA] failed citation validation because the
+section did not exist in the index; the fix grew the corpus from 214 to 288
+sections. Grounding checks catch data bugs, not just model mistakes.
 
 ## Testing
 
