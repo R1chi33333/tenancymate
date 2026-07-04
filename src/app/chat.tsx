@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { CornerDownLeft, LoaderCircle } from 'lucide-react';
+import { getBrowserEmbedder } from '@/lib/client-embedding';
 
 interface Turn {
   question: string;
@@ -56,6 +57,7 @@ export function Chat() {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
+  const [status, setStatus] = useState<string>();
   const [panel, setPanel] = useState<SectionText[]>([]);
   const [highlighted, setHighlighted] = useState<string>();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -90,10 +92,14 @@ export function Chat() {
     ]);
 
     try {
+      const embed = await getBrowserEmbedder(setStatus);
+      setStatus(undefined);
+      const vector = await embed(question);
+
       const response = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, vector }),
       });
 
       if (!response.ok) {
@@ -208,6 +214,7 @@ export function Chat() {
           ))}
         </div>
 
+        {status && <p className="pb-1 text-center text-xs text-fg-muted">{status}</p>}
         <form
           onSubmit={(event) => {
             event.preventDefault();
