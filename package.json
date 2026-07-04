@@ -10,9 +10,12 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "pipeline": "node --no-warnings pipeline/run.ts"
+    "pipeline": "node --no-warnings pipeline/run.ts",
+    "pipeline:embed": "node --no-warnings --env-file=.env.local pipeline/embed.ts"
   },
   "dependencies": {
+    "@huggingface/transformers": "^4.2.0",
+    "@neondatabase/serverless": "^1.1.0",
     "lucide-react": "^1.23.0",
     "next": "15.5.20",
     "react": "19.1.0",
