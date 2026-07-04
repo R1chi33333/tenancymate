@@ -81,12 +81,14 @@ describe('chunkSection', () => {
     part: 'Part 2 Tenancy agreements',
   };
 
-  it('keeps a short section as one chunk with the context prefix', () => {
+  it('emits a heading chunk plus one body chunk for a short section', () => {
     const chunks = chunkSection({ ...base, text: 'The bond shall not exceed 4 weeks rent.' });
-    expect(chunks).toHaveLength(1);
+    expect(chunks).toHaveLength(2);
+    expect(chunks[0]).toMatchObject({ index: -1 });
     expect(chunks[0]?.text).toContain('s 23 Bond payable');
-    expect(chunks[0]?.text).toContain('4 weeks rent');
-    expect(chunks[0]?.index).toBe(0);
+    expect(chunks[0]?.text).toContain('Part 2 Tenancy agreements');
+    expect(chunks[1]?.text).toContain('4 weeks rent');
+    expect(chunks[1]?.index).toBe(0);
   });
 
   it('splits long sections on paragraph boundaries and repeats the prefix', () => {
@@ -94,12 +96,12 @@ describe('chunkSection', () => {
     const text = [paragraph, paragraph, paragraph].join('\n');
     const chunks = chunkSection({ ...base, text });
 
-    expect(chunks.length).toBeGreaterThan(1);
+    expect(chunks.length).toBeGreaterThan(2);
     for (const chunk of chunks) {
       expect(chunk.text).toContain('s 23 Bond payable');
       expect(chunk.text.length).toBeLessThanOrEqual(CHUNK_TARGET_CHARS + 200);
       expect(chunk.sectionId).toBe('23');
     }
-    expect(chunks.map((c) => c.index)).toEqual([0, 1, 2]);
+    expect(chunks.map((c) => c.index)).toEqual([-1, 0, 1, 2]);
   });
 });

@@ -23,7 +23,10 @@ export interface Chunk {
   sectionId: string;
   heading: string;
   part: string | null;
-  /** 0-based index of this chunk within its section. */
+  /**
+   * 0-based index of this chunk within its section; -1 marks the
+   * dedicated heading chunk (see chunkSection).
+   */
   index: number;
   /** The text that gets embedded, prefixed with its context. */
   text: string;
@@ -116,6 +119,12 @@ export const CHUNK_TARGET_CHARS = 1400;
  * Split a section into embedding-sized chunks on paragraph
  * boundaries. Every chunk repeats the section context so the
  * embedding carries "s 23 Bond" even for a middle chunk.
+ *
+ * Each section also gets a dedicated heading chunk (index -1):
+ * statutory headings are short, plain-language summaries ("Rent in
+ * advance", "Tenant's goods not to be seized") and match everyday
+ * questions far better than dense body text. Measured on the eval
+ * set this lifted recall substantially; see eval/results.json.
  */
 export function chunkSection(section: Section): Chunk[] {
   const prefix = `Residential Tenancies Act 1986, s ${section.id} ${section.heading}.`;
@@ -135,11 +144,22 @@ export function chunkSection(section: Section): Chunk[] {
     bodies.push(current);
   }
 
-  return bodies.map((body, index) => ({
+  const headingChunk: Chunk = {
     sectionId: section.id,
     heading: section.heading,
     part: section.part,
-    index,
-    text: `${prefix}\n${body}`,
-  }));
+    index: -1,
+    text: `${prefix}${section.part ? ` ${section.part}.` : ''}`,
+  };
+
+  return [
+    headingChunk,
+    ...bodies.map((body, index) => ({
+      sectionId: section.id,
+      heading: section.heading,
+      part: section.part,
+      index,
+      text: `${prefix}\n${body}`,
+    })),
+  ];
 }

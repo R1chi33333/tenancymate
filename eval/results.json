@@ -1,0 +1,162 @@
+{
+  "generatedAt": "2026-07-04T09:44:29.848Z",
+  "questions": 44,
+  "results": [
+    {
+      "strategy": "vector",
+      "recall@3": 0.545,
+      "recall@6": 0.705
+    },
+    {
+      "strategy": "hybrid",
+      "recall@3": 0.591,
+      "recall@6": 0.705
+    }
+  ],
+  "misses": {
+    "vector": [
+      {
+        "id": "bond-refund",
+        "missing": ["22", "22A"],
+        "got": ["22D", "66D", "21", "22B"]
+      },
+      {
+        "id": "market-rent",
+        "missing": ["25"],
+        "got": ["27", "28A", "5A", "28", "24"]
+      },
+      {
+        "id": "tenant-guests-damage",
+        "missing": ["41"],
+        "got": ["49", "65", "114"]
+      },
+      {
+        "id": "fixtures",
+        "missing": ["42"],
+        "got": ["62", "66Q", "33", "66F"]
+      },
+      {
+        "id": "discrimination",
+        "missing": ["12"],
+        "got": ["42", "32", "22E", "66O", "43", "18A"]
+      },
+      {
+        "id": "vacant-possession",
+        "missing": ["37"],
+        "got": ["60B", "15", "60C", "60", "61"]
+      },
+      {
+        "id": "unlawful-dwelling",
+        "missing": ["36"],
+        "got": ["12", "109", "45", "32", "13", "48"]
+      },
+      {
+        "id": "seize-goods",
+        "missing": ["33"],
+        "got": ["22E", "44", "23", "27", "21", "32"]
+      },
+      {
+        "id": "retaliatory-notice",
+        "missing": ["54"],
+        "got": ["53", "59A", "56", "55"]
+      },
+      {
+        "id": "rent-arrears-termination",
+        "missing": ["55"],
+        "got": ["15", "60B", "25", "66V", "9", "60"]
+      },
+      {
+        "id": "uninhabitable",
+        "missing": ["59A"],
+        "got": ["66N", "66L", "59", "49", "66W"]
+      },
+      {
+        "id": "fixed-term-expiry",
+        "missing": ["60A"],
+        "got": ["5A", "18", "25", "66D", "24A"]
+      },
+      {
+        "id": "abandonment",
+        "missing": ["61"],
+        "got": ["62A", "41", "44", "40", "45"]
+      },
+      {
+        "id": "goods-left",
+        "missing": ["62", "62A"],
+        "got": ["66M", "66L", "45", "41", "40"]
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "bond-refund",
+        "missing": ["22", "22A"],
+        "got": ["22D", "66D", "21", "22B"]
+      },
+      {
+        "id": "market-rent",
+        "missing": ["25"],
+        "got": ["27", "28A", "5A", "28", "24"]
+      },
+      {
+        "id": "tenant-guests-damage",
+        "missing": ["41"],
+        "got": ["49", "65", "114"]
+      },
+      {
+        "id": "fixtures",
+        "missing": ["42"],
+        "got": ["62", "66Q", "33", "66F"]
+      },
+      {
+        "id": "discrimination",
+        "missing": ["12"],
+        "got": ["42", "32", "22E", "66O", "43", "18A"]
+      },
+      {
+        "id": "vacant-possession",
+        "missing": ["37"],
+        "got": ["60B", "15", "60C", "60", "61"]
+      },
+      {
+        "id": "unlawful-dwelling",
+        "missing": ["36"],
+        "got": ["12", "109", "45", "32", "13", "48"]
+      },
+      {
+        "id": "seize-goods",
+        "missing": ["33"],
+        "got": ["22E", "44", "23", "27", "21", "32"]
+      },
+      {
+        "id": "retaliatory-notice",
+        "missing": ["54"],
+        "got": ["53", "59A", "56", "55"]
+      },
+      {
+        "id": "rent-arrears-termination",
+        "missing": ["55"],
+        "got": ["15", "60B", "25", "66V", "9", "60"]
+      },
+      {
+        "id": "uninhabitable",
+        "missing": ["59A"],
+        "got": ["66N", "66L", "59", "49", "66W"]
+      },
+      {
+        "id": "fixed-term-expiry",
+        "missing": ["60A"],
+        "got": ["5A", "18", "25", "66D", "24A"]
+      },
+      {
+        "id": "abandonment",
+        "missing": ["61"],
+        "got": ["62A", "41", "44", "40", "45"]
+      },
+      {
+        "id": "goods-left",
+        "missing": ["62", "62A"],
+        "got": ["66M", "66L", "45", "41", "40"]
+      }
+    ]
+  }
+}

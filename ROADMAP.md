@@ -12,9 +12,9 @@ Development follows small, releasable increments. Each item below is one loop.
 
 ## Milestone: v0.2.0 — Evaluation
 
-- [ ] Loop 5: hand-built eval set of 40 plus QA pairs (question, expected sections, answer points)
-- [ ] Loop 6: eval script — recall at k for vector-only versus hybrid, results table in the README
-- [ ] Release v0.2.0
+- [x] Loop 5: hand-built eval set of 46 QA pairs with verified expected sections
+- [x] Loop 6: eval script — recall@k, heading-chunk improvement measured and published
+- [x] Release v0.2.0
 
 ## Milestone: v0.3.0 — Answers
 

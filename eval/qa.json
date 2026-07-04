@@ -1,0 +1,385 @@
+{
+  "description": "Hand-built evaluation set for TenancyMate over the Residential Tenancies Act 1986. Every expected section was verified against the parsed corpus; answer points state what a correct answer must convey. Questions with answerable=false are outside the Act and the assistant must say so.",
+  "corpusGeneratedAt": "2026-07-04",
+  "pairs": [
+    {
+      "id": "bond-max",
+      "question": "How many weeks of bond can my landlord ask for?",
+      "expectedSections": ["18"],
+      "answerPoints": ["a general bond may not exceed 4 weeks' rent"],
+      "answerable": true
+    },
+    {
+      "id": "bond-other-security",
+      "question": "Can a landlord ask for a guarantee or extra security on top of the bond?",
+      "expectedSections": ["18A"],
+      "answerPoints": ["no security other than a permitted bond may be required"],
+      "answerable": true
+    },
+    {
+      "id": "key-money",
+      "question": "Is it legal for a landlord to charge a fee just for granting the tenancy?",
+      "expectedSections": ["17"],
+      "answerPoints": ["requiring key money is prohibited"],
+      "answerable": true
+    },
+    {
+      "id": "bond-lodge",
+      "question": "What must the landlord do with my bond after I pay it?",
+      "expectedSections": ["19"],
+      "answerPoints": [
+        "forward the bond to the chief executive within 23 working days",
+        "give a receipt"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "bond-refund",
+      "question": "How do I get my bond back when the tenancy ends?",
+      "expectedSections": ["22", "22A"],
+      "answerPoints": [
+        "application to the chief executive for payment of the bond",
+        "agreed applications or applications without agreement"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "bond-direct",
+      "question": "Can I pay my bond directly to Tenancy Services instead of the landlord?",
+      "expectedSections": ["21"],
+      "answerPoints": [
+        "tenant may pay the bond direct to the chief executive with the landlord's consent"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "rent-advance",
+      "question": "How much rent can be demanded in advance?",
+      "expectedSections": ["23"],
+      "answerPoints": [
+        "no more than 2 weeks' rent in advance",
+        "cannot require further rent before it falls due"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "rent-increase-frequency",
+      "question": "How often can my rent be increased and how much notice is needed?",
+      "expectedSections": ["24"],
+      "answerPoints": [
+        "at least 60 days' written notice",
+        "no increase within 12 months of the start or the last increase"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "market-rent",
+      "question": "My rent seems way above similar places. Can I challenge it?",
+      "expectedSections": ["25"],
+      "answerPoints": [
+        "Tribunal may determine the market rent",
+        "rent substantially exceeding market rent"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "rent-receipts",
+      "question": "Does my landlord have to give me receipts for rent paid in cash?",
+      "expectedSections": ["29"],
+      "answerPoints": ["receipts required for cash rent payments"],
+      "answerable": true
+    },
+    {
+      "id": "landlord-records",
+      "question": "What records does a landlord have to keep about the tenancy?",
+      "expectedSections": ["30"],
+      "answerPoints": ["landlord must keep rent and tenancy records"],
+      "answerable": true
+    },
+    {
+      "id": "rent-overpaid",
+      "question": "Can I recover rent I paid above a Tribunal-set market rent?",
+      "expectedSections": ["27"],
+      "answerPoints": [
+        "rent in excess of market rent order is irrecoverable by the landlord and recoverable by the tenant"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "rent-improvements",
+      "question": "Can rent go up mid-term if the landlord substantially improves the place at my request?",
+      "expectedSections": ["28"],
+      "answerPoints": ["rent may increase by agreement or order after substantial improvements"],
+      "answerable": true
+    },
+    {
+      "id": "quiet-enjoyment",
+      "question": "My landlord keeps showing up unannounced and it feels like harassment. What are my rights?",
+      "expectedSections": ["38", "48"],
+      "answerPoints": [
+        "tenant is entitled to quiet enjoyment",
+        "interference amounts to harassment"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "entry-notice",
+      "question": "How much notice does a landlord need before entering to inspect the property?",
+      "expectedSections": ["48"],
+      "answerPoints": [
+        "at least 48 hours' notice for inspection",
+        "between 8 am and 7 pm",
+        "24 hours for repairs"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "locks",
+      "question": "Can I change the locks without asking my landlord?",
+      "expectedSections": ["46"],
+      "answerPoints": ["locks may not be altered without the other party's consent"],
+      "answerable": true
+    },
+    {
+      "id": "landlord-repairs",
+      "question": "Whose job is it to fix the leaking roof and keep the house in reasonable repair?",
+      "expectedSections": ["45"],
+      "answerPoints": [
+        "landlord must provide and maintain the premises in a reasonable state of repair",
+        "comply with health and safety requirements"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "tenant-duties",
+      "question": "What am I responsible for as a tenant day to day?",
+      "expectedSections": ["40"],
+      "answerPoints": [
+        "keep premises reasonably clean and tidy",
+        "notify the landlord of damage",
+        "not use premises for unlawful purposes"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "tenant-guests-damage",
+      "question": "Am I liable if my visitor damages the property?",
+      "expectedSections": ["41"],
+      "answerPoints": ["tenant responsible for actions of people at the premises with consent"],
+      "answerable": true
+    },
+    {
+      "id": "outgoings",
+      "question": "Who pays the council rates and who pays the power bill?",
+      "expectedSections": ["39"],
+      "answerPoints": [
+        "landlord pays rates and insurance type outgoings",
+        "tenant pays for services consumed like electricity"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "fixtures",
+      "question": "Can I take the shelves I installed with me when I move out?",
+      "expectedSections": ["42"],
+      "answerPoints": ["tenant fixtures may be removed", "premises must be restored"],
+      "answerable": true
+    },
+    {
+      "id": "written-agreement",
+      "question": "Does a tenancy agreement have to be in writing?",
+      "expectedSections": ["13"],
+      "answerPoints": ["agreement must be in writing and signed"],
+      "answerable": true
+    },
+    {
+      "id": "agreement-contents",
+      "question": "What details must a tenancy agreement include?",
+      "expectedSections": ["13A"],
+      "answerPoints": [
+        "names and addresses of the parties",
+        "rent, bond and address of the premises"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "landlord-overseas",
+      "question": "My landlord moved to Australia for six months. Do they need an agent in NZ?",
+      "expectedSections": ["16A"],
+      "answerPoints": ["agent required if out of New Zealand longer than 21 consecutive days"],
+      "answerable": true
+    },
+    {
+      "id": "discrimination",
+      "question": "A landlord rejected me because I have kids. Is that allowed?",
+      "expectedSections": ["12"],
+      "answerPoints": ["discrimination in tenancy matters is an unlawful act"],
+      "answerable": true
+    },
+    {
+      "id": "minors",
+      "question": "Can a 17 year old legally sign a tenancy agreement?",
+      "expectedSections": ["14"],
+      "answerPoints": ["tenancy agreements with minors are enforceable as if of full age"],
+      "answerable": true
+    },
+    {
+      "id": "subletting",
+      "question": "Can I sublet my room without the landlord's permission?",
+      "expectedSections": ["44"],
+      "answerPoints": [
+        "subletting requires the landlord's written consent",
+        "consent may not be unreasonably withheld where the agreement allows"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "sale-of-house",
+      "question": "Does the landlord have to tell me before putting the house up for sale?",
+      "expectedSections": ["47"],
+      "answerPoints": ["landlord must give notice if premises are put on the market"],
+      "answerable": true
+    },
+    {
+      "id": "vacant-possession",
+      "question": "I signed a lease but the old tenant is still living there on day one. What now?",
+      "expectedSections": ["37"],
+      "answerPoints": ["landlord must provide vacant possession at the start of the tenancy"],
+      "answerable": true
+    },
+    {
+      "id": "unlawful-dwelling",
+      "question": "I found out my rental is an illegal converted garage. Where do I stand?",
+      "expectedSections": ["36", "45"],
+      "answerPoints": ["landlord must ensure there is no legal impediment to occupation"],
+      "answerable": true
+    },
+    {
+      "id": "seize-goods",
+      "question": "My landlord took my TV because I owe rent. Can they do that?",
+      "expectedSections": ["33"],
+      "answerPoints": ["tenant's goods must not be seized"],
+      "answerable": true
+    },
+    {
+      "id": "accelerated-rent",
+      "question": "My agreement says all remaining rent becomes due if I breach it. Is that enforceable?",
+      "expectedSections": ["32"],
+      "answerPoints": ["accelerated rent or damages provisions are prohibited"],
+      "answerable": true
+    },
+    {
+      "id": "notice-periodic",
+      "question": "How much notice must a landlord give to end a periodic tenancy without a reason?",
+      "expectedSections": ["51"],
+      "answerPoints": [
+        "landlord must give at least 90 days' notice",
+        "42 days applies only on specific grounds",
+        "tenant gives 21 days"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "retaliatory-notice",
+      "question": "I complained about mould and got a termination notice a week later. Can I fight it?",
+      "expectedSections": ["54"],
+      "answerPoints": ["Tribunal may declare a notice retaliatory"],
+      "answerable": true
+    },
+    {
+      "id": "rent-arrears-termination",
+      "question": "How far behind on rent do I have to be before the landlord can apply to end the tenancy?",
+      "expectedSections": ["55"],
+      "answerPoints": ["21 days of rent arrears", "Tribunal may terminate"],
+      "answerable": true
+    },
+    {
+      "id": "uninhabitable",
+      "question": "The house was badly damaged in a storm and we cannot live there. Can the tenancy end?",
+      "expectedSections": ["59", "59A"],
+      "answerPoints": ["destruction or premises rendered uninhabitable allow termination"],
+      "answerable": true
+    },
+    {
+      "id": "fixed-term-expiry",
+      "question": "What happens when my one year fixed-term lease runs out and nobody says anything?",
+      "expectedSections": ["60A"],
+      "answerPoints": ["fixed-term becomes periodic unless notice of contrary intention is given"],
+      "answerable": true
+    },
+    {
+      "id": "renew-deadline",
+      "question": "By when must I exercise a right of renewal in my fixed-term lease?",
+      "expectedSections": ["60B"],
+      "answerPoints": ["right to renew or extend must be exercised at least 21 days before expiry"],
+      "answerable": true
+    },
+    {
+      "id": "abandonment",
+      "question": "My flatmate vanished owing rent and left the flat empty. What can the landlord do?",
+      "expectedSections": ["61"],
+      "answerPoints": [
+        "landlord may take possession where premises are abandoned",
+        "Tribunal order"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "goods-left",
+      "question": "The previous tenant left furniture behind. What is the landlord supposed to do with it?",
+      "expectedSections": ["62", "62A"],
+      "answerPoints": [
+        "procedures for goods left on premises",
+        "assessment of market value before disposal"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "squatters",
+      "question": "Someone is squatting in my rental property. How do I get them out legally?",
+      "expectedSections": ["65", "63"],
+      "answerPoints": [
+        "eviction of squatters through the Tribunal",
+        "entry without an order is prohibited"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "break-fixed-term",
+      "question": "My income collapsed and I cannot afford my fixed-term lease. Can it be reduced or ended early?",
+      "expectedSections": ["66"],
+      "answerPoints": [
+        "Tribunal may reduce or terminate a fixed-term tenancy for unforeseen hardship"
+      ],
+      "answerable": true
+    },
+    {
+      "id": "boarding-bond",
+      "question": "How much bond can a boarding house operator charge?",
+      "expectedSections": ["66D"],
+      "answerPoints": ["boarding house bond of 1 week's rent or less"],
+      "answerable": true
+    },
+    {
+      "id": "death-sole-tenant",
+      "question": "What happens to the tenancy if the only tenant dies?",
+      "expectedSections": ["50A"],
+      "answerPoints": ["tenancy may be terminated following the death of a sole tenant"],
+      "answerable": true
+    },
+    {
+      "id": "tax-out-of-scope",
+      "question": "How do I declare my rental income for income tax?",
+      "expectedSections": [],
+      "answerPoints": ["the Act does not address income tax"],
+      "answerable": false
+    },
+    {
+      "id": "visa-out-of-scope",
+      "question": "Does my landlord have to check my visa status before renting to me?",
+      "expectedSections": [],
+      "answerPoints": ["the Act does not impose immigration checks"],
+      "answerable": false
+    }
+  ]
+}

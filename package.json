@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "pipeline": "node --no-warnings pipeline/run.ts",
-    "pipeline:embed": "node --no-warnings --env-file=.env.local pipeline/embed.ts"
+    "pipeline:embed": "node --no-warnings --env-file=.env.local pipeline/embed.ts",
+    "eval": "node --no-warnings --env-file=.env.local eval/run.ts"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",

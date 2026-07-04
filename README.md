@@ -54,10 +54,24 @@ npm run dev
 ## Evaluation
 
 ```bash
-npm run eval   # retrieval recall@k and citation accuracy against eval/qa.json
+npm run eval   # retrieval recall@k against eval/qa.json
 ```
 
-Results will be published here with each release.
+44 answerable hand-written questions, each with verified expected sections
+([eval/qa.json](./eval/qa.json)). Recall at k is the share of expected
+sections appearing among the top-k retrieved chunks' sections.
+
+| configuration                  | recall@3  | recall@6  |
+| ------------------------------ | --------- | --------- |
+| body chunks, vector only       | 0.523     | 0.602     |
+| body chunks, hybrid (RRF)      | 0.545     | 0.602     |
+| + heading chunks, vector only  | 0.545     | 0.705     |
+| + heading chunks, hybrid (RRF) | **0.591** | **0.705** |
+
+The measured improvement: statutory headings are short plain-language
+summaries ("Rent in advance", "Tenant's goods not to be seized"), so indexing
+each section's heading as its own chunk lifted recall@6 by 10 points over
+body-only chunking. Citation accuracy lands with the generation milestone.
 
 ## Testing
 
