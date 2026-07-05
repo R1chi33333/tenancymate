@@ -26,8 +26,8 @@ Development follows small, releasable increments. Each item below is one loop.
 
 - [x] Loop 9: chat UI with streaming, clickable citations and the section panel
 - [x] Loop 10: rate limiting sized against the real free-tier budget
-- [ ] Loop 11: Playwright e2e, README results and screenshot, deploy
-- [ ] Release v1.0.0
+- [x] Loop 11: Playwright e2e, README results and screenshot, deploy
+- [x] Release v1.0.0
 
 ## Later
 

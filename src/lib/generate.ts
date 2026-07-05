@@ -11,7 +11,7 @@ import { buildUserMessage, SYSTEM_PROMPT, type AnswerContext } from './answer';
 
 /** Production model; override with GENERATION_MODEL for dev to stay
  * inside separate free-tier daily token buckets. */
-export const GENERATION_MODEL = process.env.GENERATION_MODEL ?? 'llama-3.3-70b-versatile';
+export const GENERATION_MODEL = process.env.GENERATION_MODEL ?? 'openai/gpt-oss-120b';
 
 let cached: LanguageModel | undefined;
 
@@ -32,7 +32,11 @@ export async function generateAnswer(
     system: SYSTEM_PROMPT,
     prompt: buildUserMessage(context),
     temperature: 0.1,
-    maxOutputTokens: 400,
+    // Reasoning models spend output tokens thinking before the
+    // visible answer; a low effort and a roomy cap keep the answer
+    // itself from being truncated.
+    maxOutputTokens: 1400,
+    providerOptions: { groq: { reasoningEffort: 'low' } },
   });
   return text.trim();
 }
@@ -44,6 +48,7 @@ export function streamAnswer(context: AnswerContext, model: LanguageModel = defa
     system: SYSTEM_PROMPT,
     prompt: buildUserMessage(context),
     temperature: 0.1,
-    maxOutputTokens: 400,
+    maxOutputTokens: 1400,
+    providerOptions: { groq: { reasoningEffort: 'low' } },
   });
 }

@@ -1,23 +1,13 @@
 {
-  "generatedAt": "2026-07-04T10:25:53.231Z",
+  "generatedAt": "2026-07-05T00:05:51.678Z",
   "answerableQuestions": 45,
   "outOfScopeQuestions": 2,
-  "groundedRate": 0.756,
-  "expectedCoverage": 0.644,
+  "groundedRate": 0.844,
+  "expectedCoverage": 0.656,
   "refusalCorrectness": 1,
   "failures": [
     {
       "id": "rent-advance",
-      "kind": "declined-answerable",
-      "detail": "The Act does not directly address this."
-    },
-    {
-      "id": "outgoings",
-      "kind": "ungrounded",
-      "detail": "The landlord is responsible for paying council rates [s 39(2)(a)] and [s 66E(2)("
-    },
-    {
-      "id": "fixtures",
       "kind": "declined-answerable",
       "detail": "The Act does not directly address this."
     },
@@ -28,11 +18,6 @@
     },
     {
       "id": "vacant-possession",
-      "kind": "declined-answerable",
-      "detail": "The Act does not directly address this."
-    },
-    {
-      "id": "unlawful-dwelling",
       "kind": "declined-answerable",
       "detail": "The Act does not directly address this."
     },
@@ -53,11 +38,6 @@
     },
     {
       "id": "fixed-term-expiry",
-      "kind": "declined-answerable",
-      "detail": "The Act does not directly address this."
-    },
-    {
-      "id": "goods-left",
       "kind": "declined-answerable",
       "detail": "The Act does not directly address this."
     }

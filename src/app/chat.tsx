@@ -26,7 +26,7 @@ interface SectionText {
   body: string;
 }
 
-const CITATION = /\[s\s+(\d+[A-Z]{0,3})[^\]]*\]/g;
+const CITATION = /\[\s*s\s+(\d+[A-Z]{0,3})[^\]]*\]/g;
 
 const SUGGESTIONS = [
   'How many weeks of bond can my landlord ask for?',

@@ -36,7 +36,7 @@ const qa = JSON.parse(await readFile(new URL('qa.json', import.meta.url), 'utf8'
   pairs: QaPair[];
 };
 
-const DELAY_MS = 2500;
+const DELAY_MS = 20_000; // paced for the 8k tokens-per-minute free tier
 const CACHE = new URL('answers.jsonl', import.meta.url);
 
 interface CachedAnswer {

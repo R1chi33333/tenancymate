@@ -75,6 +75,27 @@ The measured improvement: statutory headings are short plain-language
 summaries ("Rent in advance", "Pet bonds"), so indexing each section's
 heading as its own chunk lifts recall@6 by 7 points over body-only chunking.
 
+### Citation accuracy (end to end, real model)
+
+`npm run eval:citations` runs the full ask flow for every question and
+scores the answers; generations are cached to a JSONL so re-scoring after a
+parser change costs zero tokens.
+
+| metric                                                                 | value     |
+| ---------------------------------------------------------------------- | --------- |
+| grounded rate (no hallucinated citations, at least one valid citation) | **0.844** |
+| expected-section coverage (ground-truth sections actually cited)       | 0.656     |
+| refusal correctness on out-of-scope questions                          | **1.000** |
+
+Not a single answer cited a section that was not retrieved. Every remaining
+failure is the same honest mode: retrieval missed the right section and the
+model replied "The Act does not directly address this" instead of guessing.
+Two production lessons are baked into the code: reasoning models spend
+output tokens thinking, so a tight max-token cap silently truncates the
+visible answer; and models improvise citation typography ("[ s 18 ]" with a
+narrow no-break space), so the parser is deliberately forgiving while
+validation stays strict.
+
 The eval also caught a corpus bug worth recording: the first parser only
 matched legislation.govt.nz's older DLM element ids, silently dropping all
 74 sections added by recent amendment acts (pet bonds, healthy homes and
